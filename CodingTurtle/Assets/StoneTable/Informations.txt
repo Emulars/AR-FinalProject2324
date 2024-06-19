@@ -1,0 +1,2 @@
+This is basic model of a stone table. Free to use in any kind of project. Commercial to. Have fun.
+Stone Table mesh have 1820 verts / 2166 triangles. One material, 2k textures: Albedo, Normal map and Occlusion. 

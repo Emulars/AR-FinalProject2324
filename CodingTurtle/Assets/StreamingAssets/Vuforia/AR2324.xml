@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="level3" size="1.000000 1.000000" />
+    <ImageTarget name="level2" size="1.000000 1.000000" />
+    <ImageTarget name="level1" size="1.000000 1.000000" />
+    <ImageTarget name="workbenchqr" size="1.000000 1.000000" />
+  </Tracking>
+</QCARConfig>
