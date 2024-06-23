@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropPosition : MonoBehaviour, IDropHandler
+public class DropPosition : MonoBehaviour
 {
     public GameObject droppedGameObject;
-    private bool isAttached = false;
-    private bool isActive = false;
+    public bool isAttached = false;
 
     public void SetActive()
     {
-        isActive = true;
+        // active the trigger
+        GetComponent<Collider>().isTrigger = true;
     }
 
     void Update()
@@ -23,19 +23,5 @@ public class DropPosition : MonoBehaviour, IDropHandler
             isAttached = false;
             droppedGameObject = null;
         }
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        if (!isActive || eventData.pointerDrag.GetComponent<IBlock>() == null) return;
-        
-        //auto positioning when the component is dropped
-        eventData.pointerDrag.GetComponent<RectTransform>().position =
-            GetComponentInParent<RectTransform>().position;
-
-        droppedGameObject = eventData.pointerDrag;
-        isAttached = true;
-
-        eventData.pointerDrag.transform.SetParent(gameObject.transform.parent);
     }
 }

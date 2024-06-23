@@ -3,50 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDrop : MonoBehaviour
 {
-    private RectTransform rectTransform;
-
     // Duplication
     [Header("Workbench")]
-    [SerializeField] private GameObject workingPlane;
-    [SerializeField] private float scaleMultiplayer = 1f;
+    [SerializeField] 
+    private GameObject workingPlane;
+    private GameObject duplicate;
+    private Vector3 mousePosition;
 
-    private void Start()
+    private Vector3 GetMousePos() => Camera.main.WorldToScreenPoint(transform.position);
+
+    private void OnMouseDown()
     {
-        rectTransform = GetComponent<RectTransform>();
+        mousePosition = Input.mousePosition - GetMousePos();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    private void OnMouseDrag()
     {
-        var itemBeingDragged = eventData.pointerDrag;
-        itemBeingDragged.GetComponent<IBlock>().isDragged = true;
+        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+
+        GetComponent<IBlock>().isDragged = true;
 
         if (transform.parent == workingPlane.transform)
             return;
 
         // Duplicate block if in the SideBar
-        if (!itemBeingDragged.GetComponent<IBlock>().isInMain)
+        if (!GetComponent<IBlock>().isInMain)
         {
-            GameObject duplicate = Instantiate(itemBeingDragged, itemBeingDragged.transform.parent, false);
-            duplicate.name = itemBeingDragged.name;
-            OnEndDrag(duplicate);
+            duplicate = Instantiate(gameObject, transform.parent, false);
+            duplicate.name = gameObject.name;
+            OnMouseUp();
         }
+
         // Set the parent to the working plane
-        itemBeingDragged.transform.SetParent(workingPlane.transform);
-        
+        gameObject.transform.SetParent(workingPlane.transform);
+
         // Enalbe all drop positions of the block being dragged
-        var dropPositions = itemBeingDragged.GetComponentsInChildren<DropPosition>();
+        var dropPositions = gameObject.GetComponentsInChildren<DropPosition>();
         foreach (var drop in dropPositions)
         {
             drop.SetActive();
         }
+
     }
-
-    public void OnDrag(PointerEventData eventData) => rectTransform.anchoredPosition += eventData.delta / (scaleMultiplayer);
-
-    public void OnEndDrag(PointerEventData eventData) => eventData.pointerDrag.GetComponent<IBlock>().isDragged = false;
-
-    public void OnEndDrag(GameObject gameObject) => gameObject.GetComponent<IBlock>().isDragged = false;
-
+    
+    private void OnMouseUp() => duplicate.GetComponent<IBlock>().isDragged = false;
 }

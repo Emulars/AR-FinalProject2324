@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DropNextBlock
   - MainScript
+  - Trash
   layers:
   - Default
   - TransparentFX

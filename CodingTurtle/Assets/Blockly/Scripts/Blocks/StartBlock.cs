@@ -7,12 +7,21 @@ public class StartBlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponentInChildren<DropPosition>().SetActive();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        Execute();
+    }
+
+    // Execute the block flow logic
+    public void Execute()
+    {
+        var next = GetComponentInChildren<DropPosition>().droppedGameObject;
+        if (next != null)
+        {
+            next.GetComponent<IBlock>().Execute();
+        }
     }
 }

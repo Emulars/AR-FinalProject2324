@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropInTrashCan : MonoBehaviour, IDropHandler
+public class DropInTrashCan : MonoBehaviour
 {
-    public void OnDrop(PointerEventData eventData)
+    // When a block enter the trigger of the trash can, it will be destroyed
+    private void OnTriggerEnter(Collider other)
     {
-        if (eventData.pointerDrag.GetComponent<IBlock>() == null) return; //cannot drop not IBlock obj
-        Destroy(eventData.pointerDrag);
+        if (other.GetComponent<IBlock>() == null) return;
+        Destroy(other.gameObject);
     }
+
+
 }
