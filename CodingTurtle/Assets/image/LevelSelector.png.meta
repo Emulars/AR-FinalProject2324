@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 33f2083bf4e22824d97208ecaf0bad7d
+guid: e2f6fd1c9cd6fd143bf82379f204945e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,18 +121,128 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: LevelSelector_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 191.2
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e16b39b84fb9e4b9dab174b2155d10
+      internalID: 1664882667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelSelector_1
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 191.2
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1212b67af5de2e4199e59cee00aad4e
+      internalID: 850021808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelSelector_2
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 191.2
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c53b553bf4d1cc4991c5b92656181dc
+      internalID: 1089600114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelSelector_3
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 0
+        width: 191.2
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 744eac654b69b954f8284e096d57f116
+      internalID: 837533482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelSelector_4
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 191.2
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197f8e61d7d54724581aba8bd2d17edf
+      internalID: 1054291916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: dbb8dfee8bf53024ebe493f30b2f559c
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LevelSelector_0: 1664882667
+      LevelSelector_1: 850021808
+      LevelSelector_2: 1089600114
+      LevelSelector_3: 837533482
+      LevelSelector_4: 1054291916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

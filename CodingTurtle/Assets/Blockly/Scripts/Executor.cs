@@ -14,21 +14,21 @@ public class Executor : MonoBehaviour
     public void MoveStraight(float value)
     {
         Debug.Log($"Move Straight - {value}");
-        steps.Add(new Direction { direction = "Straight", value = value });
+        steps.Add(new Direction { direction = Direction.Directions.Forward, value = value });
     }
 
     // Rotate the turtle to the left
     public void RotateLeft(float value)
     {
         Debug.Log($"Rotate Left - {value}");
-        steps.Add(new Direction { direction = "Left", value = -value });
+        steps.Add(new Direction { direction = Direction.Directions.Left, value = -value });
     }
 
     // Rotate the turtle to the right
     public void RotateRight(float value)
     {
         Debug.Log($"Rotate Right - {value}");
-        steps.Add(new Direction { direction = "Right", value = value });
+        steps.Add(new Direction { direction = Direction.Directions.Right, value = value });
     }
 
     // 

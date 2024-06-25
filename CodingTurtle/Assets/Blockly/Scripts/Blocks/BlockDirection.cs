@@ -8,7 +8,7 @@ public class BlockDirection : MonoBehaviour, IBlock
     public bool isInMain { get; set; }
 
     [SerializeField] private float value;
-    [SerializeField] private string direction; // Straight, Left, Right
+    [SerializeField] private Direction.Directions direction; // Straight, Left, Right
 
     private void Start()
     {
@@ -19,11 +19,11 @@ public class BlockDirection : MonoBehaviour, IBlock
     public void Execute()
     {
         // Straight
-        if (direction.ToLower() == "straight") SendMessageUpwards("MoveStraight", value);
+        if (direction.ToString().ToLower() == "forward") SendMessageUpwards("MoveStraight", value);
         // Left
-        else if (direction.ToLower() == "left") SendMessageUpwards("RotateLeft", value);
+        else if (direction.ToString().ToLower() == "left") SendMessageUpwards("RotateLeft", value);
         // Right
-        else if (direction.ToLower() == "right") SendMessageUpwards("RotateRight", value);
+        else if (direction.ToString().ToLower() == "right") SendMessageUpwards("RotateRight", value);
 
         // Check if the block is the last one
         var next = GetComponentInChildren<DropPosition>().droppedGameObject;
@@ -37,12 +37,12 @@ public class BlockDirection : MonoBehaviour, IBlock
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // If the block enter a trigger and the trigger is MainScript, then the block is in the main canvas
-        if (other.isTrigger && other.CompareTag("MainScript"))
+        if (other.isTrigger && other.CompareTag("Main"))
         {
-            Debug.Log("An object entered a MainScript trigger.");
+            Debug.Log("An object entered a Main trigger.");
             isInMain = true;
         }
 
@@ -51,19 +51,6 @@ public class BlockDirection : MonoBehaviour, IBlock
         {
             Debug.Log("An object entered a Trash trigger.");
             Destroy(gameObject);
-        }
-
-        // If the block enter a trigger and the trigger is DropPosition, then the block will be attached to the DropPosition
-        if (other.isTrigger && other.GetComponent<DropPosition>() != null)
-        {
-            Debug.Log("An object entered a DropPosition trigger.");
-            other.GetComponent<DropPosition>().droppedGameObject = gameObject;
-            // Auto positioning when the component enters the trigger
-            transform.position = other.transform.position;
-            // Set the parent of the object to the DropPosition
-            transform.SetParent(other.transform.parent);
-            // Set the object to be attached
-            other.GetComponent<DropPosition>().isAttached = true;
         }
     }
 }

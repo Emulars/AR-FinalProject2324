@@ -10,14 +10,12 @@ public class StartBlock : MonoBehaviour
         GetComponentInChildren<DropPosition>().SetActive();
     }
 
-    private void OnMouseDown()
-    {
-        Execute();
-    }
-
     // Execute the block flow logic
     public void Execute()
     {
+        // Reset the steps list
+        Executor.steps = new List<Direction>();
+
         var next = GetComponentInChildren<DropPosition>().droppedGameObject;
         if (next != null)
         {

@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - DropNextBlock
-  - MainScript
   - Trash
+  - Main
+  - SideBar
   layers:
   - Default
   - TransparentFX

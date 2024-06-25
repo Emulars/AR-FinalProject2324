@@ -8,4 +8,5 @@ public interface IBlock
     public bool isInMain { get; set; }  // To check in which canvas section the block is, Main or SideBar
 
     public void Execute();  //block core
+
 }

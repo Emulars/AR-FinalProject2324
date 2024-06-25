@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Blockly.unity
+    guid: 4492eda89ed226c49a502bdaa4a4eb8a
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 2b0ece9b6c70ecb4d810ef08f214d455, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 298d1d43cf493bd4882e19a5bd2233ae, type: 2}
