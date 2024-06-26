@@ -5,13 +5,17 @@ using UnityEngine;
 public class TortoiseHandler : MonoBehaviour
 {
     // Create a list of all the steps the tortoise will take in the scene
-    public static List<Direction> steps = new List<Direction>() 
-    { 
-        new Direction() { direction = Direction.Directions.Forward, value = 1f},
-        new Direction() { direction = Direction.Directions.Right, value = 90f},
-        new Direction() { direction = Direction.Directions.Forward, value = 1f},
-        new Direction() { direction = Direction.Directions.Left, value = 90f},
-        new Direction() { direction = Direction.Directions.Forward, value = 1f},
+    private static List<Direction> steps = new List<Direction>() 
+    {
+        //new Direction() { direction = Direction.Directions.Forward, value = 1f},
+        //new Direction() { direction = Direction.Directions.Right, value = 90f},
+        //new Direction() { direction = Direction.Directions.Forward, value = 1f},
+        //new Direction() { direction = Direction.Directions.Left, value = 90f},
+        //new Direction() { direction = Direction.Directions.Forward, value = 1f},
+        //new Direction() { direction = Direction.Directions.Forward, value = 1f},
+        //new Direction() { direction = Direction.Directions.Left, value = 90f},
+        //new Direction() { direction = Direction.Directions.Forward, value = 1f},
+        //new Direction() { direction = Direction.Directions.Forward, value = 1f},
     };
     // Speed of the tortoise
     public float moveSpeed = 5.0f;
@@ -35,8 +39,24 @@ public class TortoiseHandler : MonoBehaviour
     {
         // Get the animator component
         animator = GetComponent<Animator>();
+        // get the steps from the executor
+        steps = Executor.steps;
     }
 
+    /// <summary>
+    /// Function invoked to update the steps list from the executor
+    /// </summary>
+    public void UpdateSteps()
+    {
+        // reset the step list to empty
+        steps = new List<Direction>();
+        // get the steps from the executor
+        steps = Executor.steps;
+        // reset the current movement index
+        currentMovementIndex = 0;
+        isMoving = false;
+        isRotating = false;
+    }
 
     private void Update()
     {

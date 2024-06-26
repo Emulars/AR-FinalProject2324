@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6134806251914977395, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17347.678
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6134806251914977395, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6134806251914977395, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -442.45374
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6134806251914977395, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -470,6 +470,10 @@ PrefabInstance:
     - target: {fileID: 6134806251914977395, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7215109203535398023, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
+      propertyPath: value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8692813047816041025, guid: 509ee4d27f640944897d0106c18c7e91, type: 3}
       propertyPath: m_Layer
@@ -508,7 +512,7 @@ MonoBehaviour:
   Child: {fileID: 0}
   DrivingSurfaceManager: {fileID: 53548744}
   CurrentPlane: {fileID: 0}
-  _prefabToSpawn: {fileID: 4391292905347682957, guid: 2446a9e4248283047ab92cccd1eaaadc, type: 3}
+  _prefabToSpawn: {fileID: 658013564759023276, guid: a286619ec11d1aa448a1becc1a0e78e2, type: 3}
 --- !u!1 &909950709
 GameObject:
   m_ObjectHideFlags: 0

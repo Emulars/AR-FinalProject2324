@@ -8,6 +8,8 @@ TagManager:
   - Trash
   - Main
   - SideBar
+  - DeathZone
+  - Tower
   layers:
   - Default
   - TransparentFX

@@ -35,5 +35,7 @@ public class Executor : MonoBehaviour
     public void IsFinish(string s)
     {
         Debug.Log(s + ": Flow finished");
+        // Invoke the UpdateSteps function in the TortoiseHandler
+        BroadcastMessage("UpdateSteps");
     }
 }
