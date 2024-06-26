@@ -16,16 +16,25 @@ public class DropPosition : MonoBehaviour, IDropHandler
         RectTransform dropTransform = GetComponent<RectTransform>();
         RectTransform draggedTransform = eventData.pointerDrag.GetComponent<RectTransform>();
 
+        eventData.pointerDrag.transform.SetParent(gameObject.transform.parent);
+
         // Align position
-        draggedTransform.position = dropTransform.position;
+        // check if the parent is a gameobject named StartBtn
+        if (gameObject.transform.parent.name == "StartBtn")
+        {
+            draggedTransform.position = dropTransform.position;
+            
+        }
+        else
+        {
+            draggedTransform.position = new Vector3(dropTransform.position.x + 70, dropTransform.position.y, dropTransform.position.z);
+        }
 
         // Optionally align rotation and scale
         draggedTransform.rotation = dropTransform.rotation;
 
         droppedGameObject = eventData.pointerDrag;
         isAttached = true;
-
-        eventData.pointerDrag.transform.SetParent(gameObject.transform.parent);
     }
 
     public void SetActive()
