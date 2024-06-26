@@ -31,7 +31,9 @@ public class ReticleBehaviour : MonoBehaviour
     public ARPlane CurrentPlane;
 
     [Header("Custom parameters")]
+    [Tooltip("The prefab to spawn when the user clicks on the screen")]
     [SerializeField] private GameObject _prefabToSpawn;
+    [SerializeField] private GameObject _prefabFather;
 
     private bool _isPlaced = false;
 
@@ -85,8 +87,9 @@ public class ReticleBehaviour : MonoBehaviour
             // Calculate rotation to face the camera
             Quaternion lookRotation = new Quaternion(0, -Camera.main.transform.rotation.y, 0, Camera.main.transform.rotation.w);
 
-            // Spawn the object at the reticle's position and with the calculated rotation
-            Instantiate(_prefabToSpawn, transform.position, lookRotation);
+            // Spawn the object at the reticle's position and with the calculated rotation as child of the prefabFather
+            GameObject childObject = Instantiate(_prefabToSpawn, transform.position, lookRotation);
+            childObject.transform.parent = _prefabFather.transform;
 
             _isPlaced = true;
         }

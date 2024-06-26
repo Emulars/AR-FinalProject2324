@@ -21,7 +21,7 @@ public class Executor : MonoBehaviour
     public void RotateLeft(float value)
     {
         Debug.Log($"Rotate Left - {value}");
-        steps.Add(new Direction { direction = Direction.Directions.Left, value = -value });
+        steps.Add(new Direction { direction = Direction.Directions.Left, value = value });
     }
 
     // Rotate the turtle to the right
@@ -31,7 +31,7 @@ public class Executor : MonoBehaviour
         steps.Add(new Direction { direction = Direction.Directions.Right, value = value });
     }
 
-    // 
+    // Invoked when the flow is finished
     public void IsFinish(string s)
     {
         Debug.Log(s + ": Flow finished");

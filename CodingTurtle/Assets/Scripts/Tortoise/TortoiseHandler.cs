@@ -17,45 +17,29 @@ public class TortoiseHandler : MonoBehaviour
         //new Direction() { direction = Direction.Directions.Forward, value = 1f},
         //new Direction() { direction = Direction.Directions.Forward, value = 1f},
     };
-    // Speed of the tortoise
-    public float moveSpeed = 5.0f;
-    // Rotation speed of the tortoise
-    public float rotateSpeed = 360.0f;
+    
+    public float moveSpeed = 0.2f;          // Speed of the tortoise
+    public float rotateSpeed = 360.0f;      // Rotation speed of the tortoise
 
-    // Index to track current movement
-    private int currentMovementIndex = 0;
-    // Track if currently moving or rotating
-    private bool isMoving = false;
-    private bool isRotating = false;
-    // Target position for forward movement
-    private Vector3 targetPosition;
-    // Target rotation for right/left rotation
-    private Quaternion targetRotation;
+    private int currentMovementIndex = 0;   // Index to track current movement
+    private bool isMoving = false;          // Track if currently moving
+    private bool isRotating = false;        // Track if currently rotating
+    
+    private Vector3 targetPosition;         // Target position for forward movement
+    private Quaternion targetRotation;      // Target rotation for right/left rotation
 
-    // Animator for the tortoise
-    private Animator animator;
+    private Animator animator;              // Animator for the tortoise
+
+    private Vector3 originalPosition;       // Original position of the tortoise for the respawn
+    private Quaternion originalRotation;    // Original rotation of the tortoise for the respawn
 
     private void Start()
     {
         // Get the animator component
         animator = GetComponent<Animator>();
-        // get the steps from the executor
-        steps = Executor.steps;
-    }
-
-    /// <summary>
-    /// Function invoked to update the steps list from the executor
-    /// </summary>
-    public void UpdateSteps()
-    {
-        // reset the step list to empty
-        steps = new List<Direction>();
-        // get the steps from the executor
-        steps = Executor.steps;
-        // reset the current movement index
-        currentMovementIndex = 0;
-        isMoving = false;
-        isRotating = false;
+        // Save the tortoise's initial position and rotation
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     private void Update()
@@ -132,5 +116,45 @@ public class TortoiseHandler : MonoBehaviour
                 currentMovementIndex++;
             }
         }
+    }
+
+    /// <summary>
+    /// Function invoked to update the steps list from the executor
+    /// </summary>
+    public void UpdateSteps()
+    {
+        // reset the step list to empty
+        ResetSteps();
+        // get the steps from the executor
+        steps = Executor.steps;
+    }
+
+    /// <summary>
+    /// Function to reset the steps list
+    /// </summary>
+    private void ResetSteps()
+    {
+        steps = new List<Direction>();
+        currentMovementIndex = 0;
+        isMoving = false;
+        isRotating = false;
+    }
+
+    /// <summary>
+    /// Function to handle the death zone
+    /// </summary>
+    private void DeathZone()
+    {
+        // Respawn the tortoise at its initial position and rotation
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        // Reset the steps list
+        ResetSteps();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Check if the tortoise has entered a collider tagged "DeathZone"
+        if (other.CompareTag("DeathZone")) DeathZone();
     }
 }

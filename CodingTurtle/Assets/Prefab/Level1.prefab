@@ -2616,9 +2616,6 @@ PrefabInstance:
       addedObject: {fileID: 7104228103048534384}
     - targetCorrespondingSourceObject: {fileID: 100004, guid: 312893f539145244eb941380e62dd9e8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7935750861471958341}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: 312893f539145244eb941380e62dd9e8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3208889313275710124}
     - targetCorrespondingSourceObject: {fileID: 100004, guid: 312893f539145244eb941380e62dd9e8, type: 3}
       insertIndex: -1
@@ -2646,18 +2643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   rotateSpeed: 360
---- !u!114 &7935750861471958341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4634716029141977834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c21f64b084b544ea4500398e3882be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &3208889313275710124
 CapsuleCollider:
   m_ObjectHideFlags: 0
