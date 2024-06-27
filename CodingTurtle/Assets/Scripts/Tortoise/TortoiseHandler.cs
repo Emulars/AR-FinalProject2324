@@ -45,12 +45,8 @@ public class TortoiseHandler : MonoBehaviour
     private void Update()
     {
         // Check if there are any steps left
-        if (currentMovementIndex >= steps.Count)
-        {
-            Debug.Log("No more steps left");
-            return;
-        }
-
+        if (currentMovementIndex >= steps.Count) return;
+        
         // Check that the tortoise is not moving or rotating
         if (!isMoving && !isRotating)
         {
@@ -91,7 +87,7 @@ public class TortoiseHandler : MonoBehaviour
         // Check if the tortoise is moving
         if (isMoving)
         {
-            Debug.Log("Moving");
+            // Debug.Log("Moving");
             // Move towards the target position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
@@ -106,7 +102,7 @@ public class TortoiseHandler : MonoBehaviour
         // Check if the tortoise is rotating
         else if (isRotating)
         {
-            Debug.Log("Rotating");
+            // Debug.Log("Rotating");
             // Rotate towards the target rotation
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
             if (Quaternion.Angle(transform.rotation, targetRotation) < 0.1f)

@@ -53,7 +53,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // Drag the block
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
+        // Debug.Log("OnDrag");
         gameObject.GetComponent<IBlock>().isDragged = true;
         rectTransform.anchoredPosition += eventData.delta / (canvas.scaleFactor * scaleMultiplier);
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlockDirection : MonoBehaviour, IBlock
 {
@@ -9,6 +10,7 @@ public class BlockDirection : MonoBehaviour, IBlock
 
     [SerializeField] private float value;
     [SerializeField] private Direction.Directions direction; // Straight, Left, Right
+    private int multiplier = 1;
 
     private void Start()
     {
@@ -18,8 +20,29 @@ public class BlockDirection : MonoBehaviour, IBlock
 
     public void Execute()
     {
+        Transform[] children = GetComponentsInChildren<Transform>();
+
+        foreach (Transform child in children)
+        {
+            if (child.name == "Multiplier")
+            {
+                Debug.Log("InputField found");
+                string inputText = child.GetComponent<Text>().text;
+                
+                // Check if the inputText is an integer
+                if (int.TryParse(inputText, out int result))
+                {
+                    Debug.Log("InputText is an integer");
+                    multiplier = result;
+                }
+                Debug.Log("Multiplier: " + multiplier);
+                // after finding the first input field, break the loop to avoid checking following blocks' input fields
+                break;
+            }
+        }
+
         // Straight
-        if (direction.ToString().ToLower() == "forward") SendMessageUpwards("MoveStraight", value);
+        if (direction.ToString().ToLower() == "forward") SendMessageUpwards("MoveStraight", value * multiplier);
         // Left
         else if (direction.ToString().ToLower() == "left") SendMessageUpwards("RotateLeft", value);
         // Right

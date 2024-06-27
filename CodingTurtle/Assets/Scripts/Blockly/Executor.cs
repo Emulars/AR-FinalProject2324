@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static Direction;
 
 public class Executor : MonoBehaviour
 {
@@ -35,6 +37,8 @@ public class Executor : MonoBehaviour
     public void IsFinish(string s)
     {
         Debug.Log(s + ": Flow finished");
+        string result = string.Join(", ", steps.Select(d => $"{d.direction}: {d.value}"));
+        Debug.Log(result);
         // Invoke the UpdateSteps function in the TortoiseHandler
         BroadcastMessage("UpdateSteps");
     }
