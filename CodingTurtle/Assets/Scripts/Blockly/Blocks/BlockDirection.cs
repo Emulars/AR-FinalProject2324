@@ -9,7 +9,7 @@ public class BlockDirection : MonoBehaviour, IBlock
     public bool isInMain { get; set; }
 
     [SerializeField] private float value;
-    [SerializeField] private Direction.Directions direction; // Straight, Left, Right
+    [SerializeField] private Direction.Movements direction; // Straight, Left, Right
     private int multiplier = 1;
 
     private void Start()
@@ -47,6 +47,9 @@ public class BlockDirection : MonoBehaviour, IBlock
         else if (direction.ToString().ToLower() == "left") SendMessageUpwards("RotateLeft", value);
         // Right
         else if (direction.ToString().ToLower() == "right") SendMessageUpwards("RotateRight", value);
+        // Attack
+        else if (direction.ToString().ToLower() == "attack") SendMessageUpwards("Attack", value);
+
 
         // Check if the block is the last one
         var next = GetComponentInChildren<DropPosition>().droppedGameObject;

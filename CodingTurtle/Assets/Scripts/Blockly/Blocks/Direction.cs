@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Direction
 {
-    public enum Directions
+    public enum Movements
     {
         Forward,
         Left,
-        Right
+        Right,
+        Attack
     }
-    public Directions direction { get; set; }
+    public Movements movement { get; set; }
     public float value { get; set; }
 }

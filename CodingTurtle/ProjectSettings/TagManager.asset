@@ -10,6 +10,8 @@ TagManager:
   - SideBar
   - DeathZone
   - Tower
+  - Destructable
+  - MainScript
   layers:
   - Default
   - TransparentFX
