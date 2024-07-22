@@ -11,8 +11,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject sideBar;
     [SerializeField] private GameObject workTable;
     [SerializeField] private GameObject infoText;
-    [SerializeField] private GameObject reset;
-    [SerializeField] private GameObject levels;
 
 
     [Header("Sprite")]
@@ -35,8 +33,6 @@ public class UIManager : MonoBehaviour
             sideBar.SetActive(false);
             workTable.SetActive(false);
             infoText.SetActive(false);
-            reset.SetActive(false);
-            levels.SetActive(false);
             gameObject.GetComponent<Image>().sprite = onSprite;
         }
         // If the start block is inactive, then activate all UI elements
@@ -46,8 +42,6 @@ public class UIManager : MonoBehaviour
             sideBar.SetActive(true);
             workTable.SetActive(true);
             //infoText.SetActive(true);
-            reset.SetActive(true);
-            levels.SetActive(true);
             gameObject.GetComponent<Image>().sprite = offSprite;
         }
     }

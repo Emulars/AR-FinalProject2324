@@ -70,3 +70,6 @@ CodingTurtle/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 CodingTurtle/[Aa]ssets/[Ss]treamingAssets/aa.meta
 CodingTurtle/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Package
+*.unitypackage
